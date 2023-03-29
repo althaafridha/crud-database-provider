@@ -63,6 +63,7 @@ class AddDataProvider extends ChangeNotifier {
           backgroundColor: Colors.green,
           textColor: Colors.white,
           fontSize: 16.0);
+      notifyListeners();
     } else {
       print('Error: ${response.reasonPhrase}');
       Fluttertoast.showToast(msg: "Data gagal ditambahkan");

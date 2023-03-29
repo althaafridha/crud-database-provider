@@ -28,6 +28,7 @@ class EditDataProvider extends ChangeNotifier {
       final responseString = String.fromCharCodes(responseData);
       final responseJson = json.decode(responseString);
       print(responseJson);
+      notifyListeners();
     } else {
       print('Error: ${response.reasonPhrase}');
     }

@@ -1,3 +1,4 @@
+import 'package:crud_database_provider/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,14 +15,17 @@ class HomePageView extends StatefulWidget {
 class _HomePageViewState extends State<HomePageView> {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => HomeProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => HomeProvider()),
+        ChangeNotifierProvider(create: (context) => AuthProvider()),
+      ],
       child: Scaffold(
-          body: Consumer<HomeProvider>(
-            builder: (context, data, child) {
+          body: Consumer2<HomeProvider, AuthProvider>(
+            builder: (context, home, auth, child) {
               return RefreshIndicator(
                 onRefresh: () async {
-                  await data.showData();
+                  await home.showData();
                 },
                 child: SafeArea(
                   child: Column(
@@ -44,7 +48,7 @@ class _HomePageViewState extends State<HomePageView> {
                                 SizedBox(
                                   width: 250,
                                   child: Text(
-                                    "${data.username}!",
+                                    "${auth.usernameController}!",
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 1,
                                     style: const TextStyle(
@@ -69,7 +73,7 @@ class _HomePageViewState extends State<HomePageView> {
                         ),
                       ),
                       Expanded(
-                        child: data.loading
+                        child: home.loading
                             ? const Center(child: CircularProgressIndicator())
                             : const ListHome(),
                       ),

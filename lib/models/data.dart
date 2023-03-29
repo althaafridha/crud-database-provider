@@ -17,12 +17,12 @@ class DataModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id_data'] = this.idData;
-    data['title'] = this.title;
-    data['description'] = this.description;
-    data['id_user'] = this.idUser;
-    data['nama'] = this.nama;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id_data'] = idData;
+    data['title'] = title;
+    data['description'] = description;
+    data['id_user'] = idUser;
+    data['nama'] = nama;
     return data;
   }
 }

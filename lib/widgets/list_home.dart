@@ -20,9 +20,9 @@ class ListHome extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (_) => EditDataPageView(
-                            idData: value.list[index].idData!, 
-                            data: value.list[index],
-                          ))),
+                              idData: value.list[index].idData!,
+                              data: value.list[index],
+                            ))),
                 child: Container(
                   height: 100,
                   width: double.infinity,
@@ -48,6 +48,11 @@ class ListHome extends StatelessWidget {
                                     fontSize: 18, fontWeight: FontWeight.w500)),
                             const SizedBox(height: 15),
                             Text(value.list[index].description!,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.w400)),
+                            Text("Uploaded by: ${value.list[index].nama}",
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: const TextStyle(

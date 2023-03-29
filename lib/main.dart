@@ -1,10 +1,5 @@
 import 'package:crud_database_provider/providers/home_provider.dart';
 import 'package:crud_database_provider/routes.dart';
-import 'package:crud_database_provider/screens/home_page_view.dart';
-import 'package:crud_database_provider/screens/login_page_view.dart';
-import 'package:crud_database_provider/screens/register_page_view.dart';
-import 'package:crud_database_provider/screens/splash_page_view.dart';
-import 'package:crud_database_provider/wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
